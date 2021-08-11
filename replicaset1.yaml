@@ -18,8 +18,11 @@ spec:
       containers:
       - name: bearapp
         image: supergiantkir/animals:bear
+        volumeMounts:
+        - mountPath: /test-pd
+          name: test-volume
       volumes:
       - name: test-volume
         hostPath:
           path: /tmp/data
-          type: Directory
+          type: DirectoryOrCreate
